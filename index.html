@@ -33,6 +33,7 @@
 					<div class="overlay-content" ng-repeat="item in items" ng-if="$index == currentIndex">
 						<img ng-src="assets/images/{{item.thumbnail}}" ng-if="item.thumbnail" class="content-image"></img>
 						<div class="content-text">
+							<b>{{item.title}}</b>
 							<div class="align-top"><p ng-bind-html="getHtml(item.description)">{{item.description}}</p></div>
 						</div>
 					</div>
@@ -57,7 +58,8 @@
 				<div ng-show="showContentPane">
 					<div class="overlay-content" ng-repeat="item in items" ng-if="$index == currentIndex">
 						<div class="col-xs-12"><img ng-src="assets/images/{{item.thumbnail}}" ng-if="item.thumbnail" class="content-image img-responsive"></img></div>
-						<div class="content-texts col-xs-12">
+						<div class="col-xs-12">
+							<b>{{item.title}}</b>
 							<p ng-bind-html="getHtml(item.description)">{{item.description}}</p>
 						</div>
 					</div>
