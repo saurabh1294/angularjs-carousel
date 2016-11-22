@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>
+			Overlay slider
+		</title>
+		<link rel="stylesheet" href="src/css/style.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<!-- <script src="slider.js"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+		
+		<script src="src/js/sliderApp.js"></script>
+	</head>
+	
+	<div class="container align-center" ng-app="sliderComponent" ng-controller="sliderCtrl">
+		<div class="overlay-parent hidden-xs">
+			<div class="overlay-bg">
+				<div class="overlay-header">
+					<img src="assets/images/doc.png" class="document"></img>
+					<img src="assets/images/up-arrow.jpg" class="expand-collapse-content up-down-arrow-cursor" ng-click="toggleView();"></img>
+				</div>
+				
+				<div ng-show="showContentPane">
+					<div class="overlay-content" ng-repeat="item in items" ng-if="$index == currentIndex">
+						<img ng-src="assets/images/{{item.thumbnail}}" ng-if="item.thumbnail" class="content-image"></img>
+						<div class="content-text">
+							<div class="col-xs-12 col-sm-12 align-top"><p ng-bind-html="getHtml(item.description)">{{item.description}}</p></div>
+						</div>
+					</div>
+					
+					<div class="gray-border">
+						<img src="assets/images/control_left.png" class="previous" ng-click="previous();"></img>
+						<img src="assets/images/control_right.png" class="next" ng-click="next();"></img>
+					</div>
+				</div>
+
+				
+			</div>
+			
+		</div>
+		
+		
+		<div class="overlay-parent visible-xs">
+			<div class="overlay-bg">
+				<div class="overlay-header">
+					<img src="assets/images/doc.png" class="document"></img>
+					<img src="assets/images/up-arrow.jpg" class="expand-collapse-content up-down-arrow-cursor" ng-click="toggleView();"></img>
+				</div>
+				
+				<div ng-show="showContentPane">
+					<div class="overlay-content" ng-repeat="item in items" ng-if="$index == currentIndex">
+						<div class="col-xs-12"><img ng-src="assets/images/{{item.thumbnail}}" ng-if="item.thumbnail" class="content-image img-responsive"></img></div>
+						<div class="content-text col-xs-12">
+							<p ng-bind-html="getHtml(item.description)">{{item.description}}</p>
+						</div>
+					</div>
+				
+				
+					<div class="gray-border">
+						<img src="assets/images/control_left.png" class="previous" ng-click="previous();"></img>
+						<img src="assets/images/control_right.png" class="next" ng-click="next();"></img>
+					</div>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+</html>
