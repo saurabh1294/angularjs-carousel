@@ -2,9 +2,7 @@
 a small responsive carousel widget using react and angularjs
 
 
-This is a simple app using D3.js and angular to show/plot weather data across different
-parts of the globe. It's been developed using D3.js and AngularJS. The data shown is fake i.e
-simulated. Only time and latitude/longitude of different locations is real
+This is a simple carousel app using bootstrap, angular and react js.
 
 
 
