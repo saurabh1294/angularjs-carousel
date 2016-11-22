@@ -200,7 +200,14 @@
 			
 		}
 		
-		@media only screen and (min-width: 147px) and (max-width:320px) {
+		@media only screen and (min-width: 147px) and (max-width:299px) {
+			div.gray-border {
+				margin-top: 400%;
+			}
+		}
+		
+		
+		@media only screen and (min-width: 300px) and (max-width:320px) {
 			div.gray-border {
 				margin-top: 230%;
 			}
