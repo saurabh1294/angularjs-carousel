@@ -196,9 +196,14 @@
 				height: auto;
 			}
 			
-			
+			h3.heading {
+				font-weight:bold;
+				font-size: 100%;
+				padding-top:20px;
+			}
 			
 		}
+		
 		
 		@media only screen and (min-width: 147px) and (max-width:299px) {
 			div.gray-border {
