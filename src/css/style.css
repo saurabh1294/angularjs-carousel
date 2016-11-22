@@ -13,7 +13,17 @@
 		.overlay-parent {
 			height:290px;
 			width:705px;
-			background:#fff8f0;
+			background:white;
+		}
+		
+		.header {
+			border: 1px solid green;
+			box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+			-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+			-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+			border-top-left-radius:0.4em;
+			border-top-right-radius:0.4em;
+			width:700px;
 		}
 		
 		div.align-top > p {
@@ -176,7 +186,7 @@
 			}
 			
 			div.overlay-bg {
-				min-height:100px;
+				/* min-height:100px; */
 				height: auto;
 			}
 			

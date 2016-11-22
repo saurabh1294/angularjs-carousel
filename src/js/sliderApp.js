@@ -47,32 +47,30 @@ sliderComponent.controller('sliderCtrl', ['$scope', '$sce', 'carouselService',
 		};
 		
 		$scope.toggleView = function() {
-			
-			
-			// var overlay_main_height = $('.overlay-parent').css('height'),//'290px',
-				// overlay_content_height = $('.overlay-content').css('height'),//'190px',
-				// overlay_bg_height = $('.overlay-bg').css('height'); //'280px';
-				
-				
-				 var overlay_main_height = '290px',
-				 overlay_content_height = '190px',
-				 overlay_bg_height = '320px';
-			
+			/*var overlay_main_height = '290px',
+			overlay_content_height = '190px',
+			overlay_bg_height = '320px';
+
 			// hide
-			if ($scope.showContentPane)
-			{
-				
-				 $('.overlay-bg').css('height', '60px');
-				 $('.overlay-content').css('height', '60px');
-				 $('.overlay-parent').css('height', '60px');
+			if ($scope.showContentPane) {
+				$('.overlay-bg').css('height', '60px');
+				$('.overlay-content').css('height', '60px');
+				$('.overlay-parent').css('height', '60px');
 				$('.expand-collapse-content').attr('src', 'assets/images/down-arrow.jpg');
+				
 			}
-			else
-			{
+			else {
 				$('.overlay-bg').css('height', overlay_bg_height);
 				$('.overlay-content').css('height', overlay_content_height);
 				$('.overlay-parent').css('height', overlay_main_height);
 				$('.expand-collapse-content').attr('src', 'assets/images/up-arrow.jpg');
+			}*/
+			
+			if ($scope.showContentPane) {
+				// $('.overlay-bg').css('height', 'auto');
+			}
+			else {
+				// $('.overlay-bg').css('height', '320px');
 			}
 			
 			$scope.showContentPane = !$scope.showContentPane;
