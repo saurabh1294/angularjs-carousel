@@ -27,6 +27,7 @@
 				<div class="overlay-header">
 					<img src="assets/images/doc.png" class="document"></img>
 					<img src="assets/images/up-arrow.jpg" class="expand-collapse-content up-down-arrow-cursor" ng-click="toggleView();"></img>
+					<h3 class="heading">{{heading}}</h3>
 				</div>
 				
 				<div ng-show="showContentPane">
@@ -53,6 +54,7 @@
 				<div class="overlay-header">
 					<img src="assets/images/doc.png" class="document"></img>
 					<img src="assets/images/up-arrow.jpg" class="expand-collapse-content up-down-arrow-cursor" ng-click="showContentPane = !showContentPane;"></img>
+					<h3 class="heading">{{heading}}</h3>
 				</div>
 				
 				<div ng-show="showContentPane">

@@ -14,11 +14,13 @@ sliderComponent.controller('sliderCtrl', ['$scope', '$sce', 'carouselService',
 			var param = {};
 			$scope.showContentPane = true;
 			$scope.currentIndex = 0;
+			$scope.heading = '';
 			
 			carouselService.getData(param)
                     .success(function(response){
 						console.log(response);
 						$scope.items = response.content;
+						$scope.heading = response.title;
                     })
                     .error(function(error, status){
                         alert("error occured ", status);
