@@ -3,14 +3,23 @@
 		<title>
 			Overlay slider
 		</title>
-		<link rel="stylesheet" href="src/css/style.css"/>
+		
+		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 		<!-- <script src="slider.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 		
-		<script src="src/js/sliderApp.js"></script>
+		<!-- custom libs - prod version -->
+		<link rel="stylesheet" href="dist/prod/carousel.component.min.css"/>
+		<script src="dist/prod/carousel.component.min.js"></script>
+		<!-- custom libs - prod version -->
+		
+		<!-- custom libs dev version -->
+		<!-- <script src="src/js/sliderApp.js"></script> -->
+		<!-- <link rel="stylesheet" href="src/css/style.css"/> -->
+		<!-- custom libs dev version -->
 	</head>
 	
 	<div class="container align-center" ng-app="sliderComponent" ng-controller="sliderCtrl">
