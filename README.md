@@ -62,6 +62,4 @@ http://localhost:8080//angularjs-carousel/
 
 
 
-Below is the demo hosted publically 
 
-http://golibrary.co/angularjs-carousel/
