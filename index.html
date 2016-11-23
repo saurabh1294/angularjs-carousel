@@ -1,27 +1,31 @@
 <html>
 	<head>
 		<title>
-			Overlay slider
+			Overlay slider responsive widget
 		</title>
 		
-		
+		<!-- standard base libs -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<!-- standard base libs -->
 		
-		<!-- custom libs - prod version -->
+		<!-- custom libs - prod version comment this while testing on dev version -->
 		<link rel="stylesheet" href="dist/prod/carousel.component.min.css"/>
 		<script src="dist/prod/carousel.component.min.js"></script>
-		<!-- custom libs - prod version -->
+		<!-- custom libs - prod version comment this while testing on dev version -->
 		
-		<!-- custom libs dev version -->
+		<!-- custom libs dev version uncomment for dev version -->
 		<!-- <script src="src/js/sliderApp.js"></script> -->
 		<!-- <link rel="stylesheet" href="src/css/style.css"/> -->
-		<!-- custom libs dev version -->
+		<!-- custom libs dev version uncomment for dev version -->
 	</head>
 	
+	<!-- init angularjs app and controller -->
 	<div class="container align-center" ng-app="sliderComponent" ng-controller="sliderCtrl">
+	
+		<!-- this will show up on desktop view only-->
 		<div class="overlay-parent hidden-xs">
 			<div ng-class="(showContentPane)? 'overlay-bg' : 'header'">
 				<div class="overlay-header">
@@ -45,10 +49,12 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
+		<!-- this will show up on desktop view only-->
 		
 		
+		
+		<!-- this will show up on mobile view only-->
 		<div class="overlay-parent visible-xs">
 			<div class="overlay-bg">
 				<div class="overlay-header">
@@ -74,8 +80,9 @@
 				
 				</div>
 			</div>
-			
 		</div>
+		<!-- this will show up on mobile view only-->
 		
 	</div>
+	<!-- end init angularjs app and controller -->
 </html>
