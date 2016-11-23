@@ -29,29 +29,29 @@
 			
 			
 			var matchData = function() {
-				var description 	= $("div.align-top>p").html(),
-					heading			= $(".heading").html(),
-					subheading		= $("div.content-text>b").html(),
-					imageName		= $("div.overlay-content>img").attr("ng-src"), 
+				var description 	= $("div.align-top>p"),
+					heading			= $(".heading"),
+					subheading		= $("div.content-text>b"),
+					imageName		= $("div.overlay-content>img"), 
 					imgURLBase		= "assets/images/";
 				
 				// keep watch on the expected and actual values
 				spyOn(heading, 'val').and.returnValue(jsonData.title);
-				spyOn(subheading, 'val').and.returnValue(jsonData[0].title);
-				spyOn(imageName, 'val').and.returnValue(imgURLBase+jsonData[0].thumbnail);
-				spyOn(description, 'val').and.returnValue(jsonData[0].description);
+				spyOn(subheading, 'val').and.returnValue(jsonData.content[0].title);
+				spyOn(imageName, 'val').and.returnValue(imgURLBase+jsonData.content[0].thumbnail);
+				spyOn(description, 'val').and.returnValue(jsonData.content[0].description);
 				
 				// console logs for tracking values on UI and expected one's
-				console.log("Comparing "+heading.val()+ "with "+jsonData.title);
-				console.log("Comparing "+subheading.val()+ "with "+jsonData[0].title);
-				console.log("Comparing "+imageName.val()+ "with "+imgURLBase+jsonData[0].thumbnail);
-				console.log("Comparing "+description.val()+ "with "+jsonData[0].description);
+				console.log("Comparing heading : "+"\""+heading.val()+"\""+ " WITH "+"\""+jsonData.title+"\"");
+				console.log("Comparing subheading : "+"\""+subheading.val()+"\""+ " WITH "+"\""+jsonData.content[0].title+"\"");
+				console.log("Comparing thumbnail image source : "+"\""+imageName.val()+"\""+ " WITH "+"\""+imgURLBase+jsonData.content[0].thumbnail+"\"");
+				console.log("Comparing description text:\n "+"\""+description.val()+"\""+ " \n\t\t\t\t\t\t\tWITH\n "+"\""+jsonData.content[0].description+"\"");
 				
 				// compare UI values with expected values
 				expect(heading.val()).toEqual(jsonData.title);
-				expect(sub-heading.val()).toEqual(jsonData[0].title);
-				expect(description.val()).toEqual(jsonData[0].description);
-				expect(imageName.val()).toEqual(imgURLBase+jsonData[0].thumbnail);
+				expect(subheading.val()).toEqual(jsonData.content[0].title);
+				expect(description.val()).toEqual(jsonData.content[0].description);
+				expect(imageName.val()).toEqual(imgURLBase+jsonData.content[0].thumbnail);
 				
 			};
 			
