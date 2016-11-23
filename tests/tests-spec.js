@@ -34,7 +34,7 @@
 					subheading		= $("div.content-text>b"),
 					imageName		= $("div.overlay-content>img"), 
 					imgURLBase		= "assets/images/",
-					uparrow			= $(".expand-collapse-content");
+					uparrow			= $(".up-down-arrow-cursor");
 				
 				// keep watch on the expected and actual values
 				spyOn(heading, 'val').and.returnValue(jsonData.title);
@@ -53,24 +53,10 @@
 				expect(heading.val()).toEqual(jsonData.title);
 				expect(subheading.val()).toEqual(jsonData.content[0].title);
 				expect(description.val()).toEqual(jsonData.content[0].description);
-				expect(imageName.val()).toEqual(imgURLBase+jsonData.content[0].thumbnail);	
-			};
-			
-		
-			var value = 1;
-			
-			var triggerKeyDown = function () {
-				var btn = $(".expand-collapse-content");
-				var click = $.Event('click');
-				btn.trigger("click");
-				value = value ^ 1;
-				var display = (value === 0) ? "none" : "block";
-				console.log($("img").length);
-				expect($("#gh-overlay-content").css("display")).toEqual(display);
+				expect(imageName.val()).toEqual(imgURLBase+jsonData.content[0].thumbnail);
 			};
 			
 			matchData();
-			triggerKeyDown();
     });
 
     
