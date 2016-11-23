@@ -5,9 +5,8 @@
 var sliderComponent = angular.module("sliderComponent", []);
 
 
-
-sliderComponent.controller('sliderCtrl', ['$scope', '$sce', 'carouselService',
-    function($scope, $sce, carouselService) {
+sliderComponent.controller('sliderCtrl', ['$scope', '$sce', '$window', 'carouselService',
+    function($scope, $sce, $window, carouselService) {
 		$scope.items = [];
 		var init = function() {
 			// init all params
@@ -18,15 +17,14 @@ sliderComponent.controller('sliderCtrl', ['$scope', '$sce', 'carouselService',
 			
 			// web service call to fetch data from json
 			carouselService.getData(param)
-                    .success(function(response){
-						console.log(response);
-						$scope.items = response.content;
-						$scope.heading = response.title;
-                    })
-                    .error(function(error, status){
-                        alert("error occured ", status);
-                    });
-			
+				.success(function(response){
+					console.log(response);
+					$scope.items = response.content;
+					$scope.heading = response.title;
+				})
+				.error(function(error, status){
+					alert("error occured ", status);
+				});
 		};
 		// init carousel
 		init();

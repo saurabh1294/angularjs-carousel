@@ -33,13 +33,15 @@
 					heading			= $(".heading"),
 					subheading		= $("div.content-text>b"),
 					imageName		= $("div.overlay-content>img"), 
-					imgURLBase		= "assets/images/";
+					imgURLBase		= "assets/images/",
+					uparrow			= $(".expand-collapse-content");
 				
 				// keep watch on the expected and actual values
 				spyOn(heading, 'val').and.returnValue(jsonData.title);
 				spyOn(subheading, 'val').and.returnValue(jsonData.content[0].title);
 				spyOn(imageName, 'val').and.returnValue(imgURLBase+jsonData.content[0].thumbnail);
 				spyOn(description, 'val').and.returnValue(jsonData.content[0].description);
+				spyOn(uparrow, 'val').and.returnValue(1);
 				
 				// console logs for tracking values on UI and expected one's
 				console.log("Comparing heading : "+"\""+heading.val()+"\""+ " WITH "+"\""+jsonData.title+"\"");
@@ -51,19 +53,24 @@
 				expect(heading.val()).toEqual(jsonData.title);
 				expect(subheading.val()).toEqual(jsonData.content[0].title);
 				expect(description.val()).toEqual(jsonData.content[0].description);
-				expect(imageName.val()).toEqual(imgURLBase+jsonData.content[0].thumbnail);
-				
+				expect(imageName.val()).toEqual(imgURLBase+jsonData.content[0].thumbnail);	
 			};
 			
-			var triggerKeyDown = function (element, keyCode) {
-				var e = $.Event("keydown");
-				e.which = keyCode;
-				element.trigger(e);
+		
+			var value = 1;
+			
+			var triggerKeyDown = function () {
+				var btn = $(".expand-collapse-content");
+				var click = $.Event('click');
+				btn.trigger("click");
+				value = value ^ 1;
+				var display = (value === 0) ? "none" : "block";
+				console.log($("img").length);
+				expect($("#gh-overlay-content").css("display")).toEqual(display);
 			};
 			
 			matchData();
-		
-		
+			triggerKeyDown();
     });
 
     

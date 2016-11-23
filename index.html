@@ -23,7 +23,7 @@
 							<h3 class="heading">{{heading}}</h3>
 						</div>
 						
-						<div ng-show="showContentPane">
+						<div id="gh-overlay-content" ng-show="showContentPane">
 							<div class="overlay-content" ng-repeat="item in items" ng-if="$index == currentIndex">
 								<img ng-src="assets/images/{{item.thumbnail}}" ng-if="item.thumbnail" class="content-image"></img>
 								<div class="content-text">
