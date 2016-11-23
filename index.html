@@ -7,8 +7,76 @@
 		<!-- standard base libs -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	</head>
+	
+		<body>
+		
+			<!-- init angularjs app and controller -->
+			<div class="container align-center" ng-app="sliderComponent" ng-controller="sliderCtrl">
+		
+				<!-- this will show up on desktop view only-->
+				<div class="overlay-parent hidden-xs">
+					<div ng-class="(showContentPane)? 'overlay-bg' : 'header'">
+						<div class="overlay-header">
+							<img src="assets/images/doc.png" class="document"></img>
+							<img src="assets/images/up-arrow.jpg" class="expand-collapse-content up-down-arrow-cursor" ng-click="toggleView();"></img>
+							<h3 class="heading">{{heading}}</h3>
+						</div>
+						
+						<div ng-show="showContentPane">
+							<div class="overlay-content" ng-repeat="item in items" ng-if="$index == currentIndex">
+								<img ng-src="assets/images/{{item.thumbnail}}" ng-if="item.thumbnail" class="content-image"></img>
+								<div class="content-text">
+									<b>{{item.title}}</b>
+									<div class="align-top"><p ng-bind-html="getHtml(item.description)">{{item.description}}</p></div>
+								</div>
+							</div>
+							
+							<div class="gray-border">
+								<img src="assets/images/control_left.png" class="previous" ng-click="previous();"></img>
+								<img src="assets/images/control_right.png" class="next" ng-click="next();"></img>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- this will show up on desktop view only-->
+				
+				
+				
+				<!-- this will show up on mobile view only-->
+				<div class="overlay-parent visible-xs">
+					<div class="overlay-bg">
+						<div class="overlay-header">
+							<img src="assets/images/doc.png" class="document"></img>
+							<img src="assets/images/up-arrow.jpg" class="expand-collapse-content up-down-arrow-cursor" ng-click="showContentPane = !showContentPane;"></img>
+							<h3 class="heading">{{heading}}</h3>
+						</div>
+						
+						<div ng-show="showContentPane">
+							<div class="overlay-content" ng-repeat="item in items" ng-if="$index == currentIndex">
+								<div class="col-xs-12"><img ng-src="assets/images/{{item.thumbnail}}" ng-if="item.thumbnail" class="content-image img-responsive"></img></div>
+								<div class="col-xs-12">
+									<b>{{item.title}}</b>
+									<p ng-bind-html="getHtml(item.description)">{{item.description}}</p>
+								</div>
+							</div>
+						
+						
+							<div class="gray-border">
+								<img src="assets/images/control_left.png" class="previous" ng-click="previous();"></img>
+								<img src="assets/images/control_right.png" class="next" ng-click="next();"></img>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				<!-- this will show up on mobile view only-->
+			
+			</div>
+		<!-- end init angularjs app and controller -->
+	
+		<script type="text/javascript" src="libs/jquery.min.js"></script>
+		<script src="libs/angular.min.js"></script>
 		<!-- standard base libs -->
 		
 		<!-- custom libs - prod version comment this while testing on dev version -->
@@ -20,69 +88,6 @@
 		<!-- <script src="src/js/sliderApp.js"></script> -->
 		<!-- <link rel="stylesheet" href="src/css/style.css"/> -->
 		<!-- custom libs dev version uncomment for dev version -->
-	</head>
 	
-	<!-- init angularjs app and controller -->
-	<div class="container align-center" ng-app="sliderComponent" ng-controller="sliderCtrl">
-	
-		<!-- this will show up on desktop view only-->
-		<div class="overlay-parent hidden-xs">
-			<div ng-class="(showContentPane)? 'overlay-bg' : 'header'">
-				<div class="overlay-header">
-					<img src="assets/images/doc.png" class="document"></img>
-					<img src="assets/images/up-arrow.jpg" class="expand-collapse-content up-down-arrow-cursor" ng-click="toggleView();"></img>
-					<h3 class="heading">{{heading}}</h3>
-				</div>
-				
-				<div ng-show="showContentPane">
-					<div class="overlay-content" ng-repeat="item in items" ng-if="$index == currentIndex">
-						<img ng-src="assets/images/{{item.thumbnail}}" ng-if="item.thumbnail" class="content-image"></img>
-						<div class="content-text">
-							<b>{{item.title}}</b>
-							<div class="align-top"><p ng-bind-html="getHtml(item.description)">{{item.description}}</p></div>
-						</div>
-					</div>
-					
-					<div class="gray-border">
-						<img src="assets/images/control_left.png" class="previous" ng-click="previous();"></img>
-						<img src="assets/images/control_right.png" class="next" ng-click="next();"></img>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- this will show up on desktop view only-->
-		
-		
-		
-		<!-- this will show up on mobile view only-->
-		<div class="overlay-parent visible-xs">
-			<div class="overlay-bg">
-				<div class="overlay-header">
-					<img src="assets/images/doc.png" class="document"></img>
-					<img src="assets/images/up-arrow.jpg" class="expand-collapse-content up-down-arrow-cursor" ng-click="showContentPane = !showContentPane;"></img>
-					<h3 class="heading">{{heading}}</h3>
-				</div>
-				
-				<div ng-show="showContentPane">
-					<div class="overlay-content" ng-repeat="item in items" ng-if="$index == currentIndex">
-						<div class="col-xs-12"><img ng-src="assets/images/{{item.thumbnail}}" ng-if="item.thumbnail" class="content-image img-responsive"></img></div>
-						<div class="col-xs-12">
-							<b>{{item.title}}</b>
-							<p ng-bind-html="getHtml(item.description)">{{item.description}}</p>
-						</div>
-					</div>
-				
-				
-					<div class="gray-border">
-						<img src="assets/images/control_left.png" class="previous" ng-click="previous();"></img>
-						<img src="assets/images/control_right.png" class="next" ng-click="next();"></img>
-					</div>
-				
-				</div>
-			</div>
-		</div>
-		<!-- this will show up on mobile view only-->
-		
-	</div>
-	<!-- end init angularjs app and controller -->
+	</body>
 </html>

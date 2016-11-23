@@ -26,6 +26,42 @@
 					}
 				]
 			};
+			
+			
+			var matchData = function() {
+				var description 	= $("div.align-top>p").html(),
+					heading			= $(".heading").html(),
+					subheading		= $("div.content-text>b").html(),
+					imageName		= $("div.overlay-content>img").attr("ng-src"), 
+					imgURLBase		= "assets/images/";
+				
+				// keep watch on the expected and actual values
+				spyOn(heading, 'val').and.returnValue(jsonData.title);
+				spyOn(subheading, 'val').and.returnValue(jsonData[0].title);
+				spyOn(imageName, 'val').and.returnValue(imgURLBase+jsonData[0].thumbnail);
+				spyOn(description, 'val').and.returnValue(jsonData[0].description);
+				
+				// console logs for tracking values on UI and expected one's
+				console.log("Comparing "+heading.val()+ "with "+jsonData.title);
+				console.log("Comparing "+subheading.val()+ "with "+jsonData[0].title);
+				console.log("Comparing "+imageName.val()+ "with "+imgURLBase+jsonData[0].thumbnail);
+				console.log("Comparing "+description.val()+ "with "+jsonData[0].description);
+				
+				// compare UI values with expected values
+				expect(heading.val()).toEqual(jsonData.title);
+				expect(sub-heading.val()).toEqual(jsonData[0].title);
+				expect(description.val()).toEqual(jsonData[0].description);
+				expect(imageName.val()).toEqual(imgURLBase+jsonData[0].thumbnail);
+				
+			};
+			
+			var triggerKeyDown = function (element, keyCode) {
+				var e = $.Event("keydown");
+				e.which = keyCode;
+				element.trigger(e);
+			};
+			
+			matchData();
 		
 		
     });
