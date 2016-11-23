@@ -1,8 +1,8 @@
 # angularjs-carousel
-a small responsive carousel widget using react and angularjs
+a small responsive carousel widget using bootstrap and angularjs
 
 
-This is a simple carousel app using bootstrap, angular and react js.
+This is a simple carousel app using bootstrap, angular and bootstrap.
 
 
 
